@@ -14,11 +14,25 @@
         <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
             <ul class="flex flex-row pl-0 mb-0 list-none ml-auto">
                 <li class="flex items-center">
-                    <a href="{{ route('login') }}"
-                        class="block px-0 py-2 font-semibold text-white transition-all ease-in-out text-sm">
-                        <i class="fa fa-user sm:mr-1" aria-hidden="true"></i>
-                        <span class="hidden sm:inline">Sign In</span>
-                    </a>
+                    @guest
+                        <a href="{{ route('login') }}"
+                            class="block px-0 py-2 font-semibold text-white transition-all ease-in-out text-sm">
+                            <i class="fa fa-user sm:mr-1" aria-hidden="true"></i>
+                            <span class="hidden sm:inline">Sign In</span>
+                        </a>
+                    @endguest
+                    @auth
+                        <a class="block px-0 py-2 font-semibold text-white transition-all ease-in-out text-sm">
+                            <i class="fa fa-user sm:mr-1" aria-hidden="true"></i>
+                            <span class="hidden sm:inline">{{ auth()->user()->name }}
+                                &ThickSpace;&ThickSpace;&vert;&ThickSpace;&ThickSpace;&ThickSpace;</span>
+                        </a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit"
+                                class="inline-block px-4 py-2 font-bold text-center text-blue-500 align-middle transition-all bg-white border border-blue-500 rounded-lg cursor-pointer leading-normal text-xs ease-in tracking-tight-rem shadow-xs bg-150 bg-x-25 hover:-translate-y-px active:opacity-85 hover:shadow-md">Logout</button>
+                        </form>
+                    @endauth
                 </li>
             </ul>
         </div>
