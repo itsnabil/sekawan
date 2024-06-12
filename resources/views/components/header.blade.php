@@ -12,9 +12,9 @@
             <h6 class="mb-0 font-bold text-white capitalize">Dashboard</h6>
         </nav>
         <div class="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
-            <ul class="flex flex-row justify-end pl-0 mb-0 list-none md-max:w-full">
+            <ul class="flex flex-row pl-0 mb-0 list-none ml-auto">
                 <li class="flex items-center">
-                    <a href="../pages/sign-in.html"
+                    <a href="{{ route('login') }}"
                         class="block px-0 py-2 font-semibold text-white transition-all ease-in-out text-sm">
                         <i class="fa fa-user sm:mr-1" aria-hidden="true"></i>
                         <span class="hidden sm:inline">Sign In</span>

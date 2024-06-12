@@ -1,11 +1,9 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('beranda', ['title' => 'Beranda']);
-});
-
-Route::get('/tabel', function () {
-    return view('tabel', ['title' => 'Tabel']);
-});
+Route::view('/', 'beranda', ['title' => 'Beranda'])->name('beranda');
+Route::view('tabel', 'tabel', ['title' => 'Tabel'])->name('tabel');
+Route::view('auth/login', 'auth.login', ['title' => 'Login'])->name('login');
+Route::view('auth/register', 'auth.register', ['title' => 'Registrasi'])->name('register');
