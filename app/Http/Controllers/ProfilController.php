@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MasterProfil;
-use App\Http\Requests\StoreProfilRequest;
-use App\Http\Requests\UpdateProfilRequest;
+use App\Models\Profil;
 
-class Profil extends Controller
+use Illuminate\Http\Request;
+
+class ProfilController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $profils = Profil::with('user')->latest()->get();
+
+        return view('admin.profil', [
+            'title'   => 'Profil Admin',
+            'profils' => $profils
+        ]);
     }
+    // $profils = Profil::latest()->paginate(5);
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +30,7 @@ class Profil extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProfilRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -51,7 +54,7 @@ class Profil extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProfilRequest $request, Profil $profil)
+    public function update(Request $request, Profil $profil)
     {
         //
     }

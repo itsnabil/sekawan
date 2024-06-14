@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\MasterUser;
 
-class Auths extends Controller
+class AuthController extends Controller
 {
     public function registrasi(Request $request)
     {
@@ -16,7 +17,7 @@ class Auths extends Controller
             'password'  => ['required', 'min:6', 'confirmed']
         ]);
 
-        $user = MasterUser::create($fields);
+        $user = User::create($fields);
 
         Auth::login($user);
 

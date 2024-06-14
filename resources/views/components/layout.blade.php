@@ -24,7 +24,9 @@
     <main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-x1">
 
         {{-- Header --}}
-        <x-header></x-header>
+        <x-header>
+            <x-slot:title>{{ $title }}</x-slot:title>
+        </x-header>
 
         {{-- Content --}}
         <div class="w-full px-6 py-6 mx-auto">

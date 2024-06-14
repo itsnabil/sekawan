@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,15 +10,14 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProfilFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
     public function definition(): array
     {
         return [
-            //
+            'user_id'   => User::first()->id,
+            'nomor_hp'  => fake()->phoneNumber(),
+            'alamat'    => fake()->address(),
+            'kota'      => fake()->city(),
+            'pos'       => fake()->postcode()
         ];
     }
 }
